@@ -36,18 +36,18 @@ class ScrapeTarget:
     def load(self,cached=False):
         if self.loader == "selenium":
             if cached:
-                if os.path.exists('page-'+self.name) != True:
+                if os.path.exists('data/page-'+self.name) != True:
                     print(self.name+': fetching page to cache')
                     self.page = webpage(self.url,automator=True)
-                    self.page.save('page-'+self.name)
+                    self.page.save('data/page-'+self.name)
                 else:
                     print(self.name+': using cached page')
                     self.page = webpage()
-                    self.page.load('page-'+self.name)
+                    self.page.load('data/page-'+self.name)
             else:
                 print(self.name+': fetching page')
                 self.page = webpage(self.url,automator=True)
-                self.page.save('page-'+self.name)
+                self.page.save('data/page-'+self.name)
         else:
             print(self.name+':loader:'+self.loader+' not recognized')
 
@@ -59,7 +59,7 @@ class ScrapeTarget:
                     item = j.text.strip()
                     if item != '':
                         #self.text.append((item,self.xpathList[i+1],j.xpath(self.xpathList[i+2])[0],time.strftime("%I:%M:%S:%P:%F")))
-                        self.text.append({'text':item,'type':self.xpathList[i+1],'link':j.xpath(self.xpathList[i+2])[0],'timestamp':time.strftime("%I:%M:%S:%P:%F")})
+                        self.text.append({'text':item,'type':self.xpathList[i+1],'link':j.xpath(self.xpathList[i+2])[0],'timestamp':time.strftime("%F:%I:%M:%S:%P")})
     def getText(self):
         if os.path.exists('text-'+self.name) != True:
             print(self.name+': no database file present')
