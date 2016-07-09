@@ -1,0 +1,26 @@
+{
+  "name": "foxnews",
+  "url": "http://www.foxnews.com",
+  "loader": "selenium",
+  "xpath":
+  [
+    "//*[@data-vr-contentbox]//a",
+    "data-vr-contentbox",
+    "./@href",
+    "//div[@class='mkt-rel']//li/a",
+    "mkt-rel",
+    "./@href",
+    "//*[@id='watch']/h2/following-sibling::ul//li//a",
+    "watch",
+    "./@href",
+    "//*[@class='bkt video-ct']",
+    "video-ct",
+    "./a/@href",
+    "//*[@class='bkt article-ct']",
+    "article-ct",
+    "./a/@href",
+    "//*[contains(@class,'ob-rec-text')]",
+    "ob-rec-text",
+    "../*/../@href"
+  ]
+}

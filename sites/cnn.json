@@ -1,0 +1,14 @@
+{
+  "name": "cnn",
+  "url": "http://www.cnn.com",
+  "loader": "selenium",
+  "xpath":
+  [
+    "//*[contains(@class,'cd__headline-text')]",
+    "cd__headline-text",
+    "../@href",
+    "//*[contains(@class,'rec-link')]",
+    "rec-link",
+    "./@onmousedown"
+  ]
+}
